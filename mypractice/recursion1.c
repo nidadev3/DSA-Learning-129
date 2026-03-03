@@ -52,16 +52,29 @@
 // i
 
 // Fibonacci series
-int fibonacci(int n){
+// int fibonacci(int n){
+//     if(n==0){
+//         return 0;
+//     }
+//     if(n==1){
+//         return 1;
+//      }
+//      return fibonacci(n-1)+fibonacci(n-2);
+// }
+// int main(){
+//     int num=6;
+//     printf("%d\n",fibonacci(num));
+// }
+
+//Sum of Array 
+int SumArray(int arr[],int n){
     if(n==0){
         return 0;
     }
-    if(n==1){
-        return 1;
-     }
-     return fibonacci(n-1)+fibonacci(n-2);
+    return arr[0]+SumArray(arr+1,n-1);
 }
 int main(){
-    int num=6;
-    printf("%d\n",fibonacci(num));
+    int arr[]={1,2,3,4,5};
+    int n=sizeof(arr)/sizeof(arr[0]);
+    printf("%d\n",SumArray(arr,n));
 }
