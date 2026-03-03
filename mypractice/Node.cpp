@@ -56,52 +56,78 @@ using namespace std;
 // }
 
 //Creating linked list with 3 nodes
-#include <iostream>
-using namespace std;
 
 
+// struct Node {
+//     int data;     
+//     Node* next;   
+// };
+
+// int main() {
+    
+//     Node* node1 = new Node();
+//     node1->data = 10;       
+//     node1->next = nullptr; 
+
+    
+//     Node* head = node1;     
+
+    
+//     Node* node2 = new Node();
+//     node2->data = 20;
+//     node2->next = nullptr;  
+
+   
+//     node1->next = node2;
+
+ 
+//     Node* node3 = new Node();
+//     node3->data = 30;
+//     node3->next = nullptr; 
+    
+//     node2->next = node3;
+
+//     cout << "Node 1 Data: " << node1->data << endl;
+//     cout << "Node 2 Data: " << node2->data << endl;
+//     cout << "Node 3 Data: " << node3->data << endl;
+
+//     cout << "Node 1 Address (head): " << head << endl;
+//     cout << "Node 1 Next: " << node1->next << endl;
+//     cout << "Node 2 Next: " << node2->next << endl;
+//     cout << "Node 3 Next: " << node3->next << endl;
+
+   
+//     delete node3;
+//     delete node2;
+//     delete node1;
+
+//     return 0;
+// }
+
+//Linked list with head
 struct Node {
     int data;     
     Node* next;   
 };
-
-int main() {
+int main (){
+    Node *head=new Node();
+    head->data=10;
+    head->next=nullptr;
     
-    Node* node1 = new Node();
-    node1->data = 10;       
-    node1->next = nullptr; 
+    head->next=new Node();
+    head->next->data=20;
+    head->next->next=nullptr;
 
-    
-    Node* head = node1;     
+    head->next->next=new Node();
+    head->next->next->data=30;
+    head->next->next->next=nullptr;
 
-    
-    Node* node2 = new Node();
-    node2->data = 20;
-    node2->next = nullptr;  
-
-   
-    node1->next = node2;
-
- 
-    Node* node3 = new Node();
-    node3->data = 30;
-    node3->next = nullptr; 
-    
-    node2->next = node3;
-
-    cout << "Node 1 Data: " << node1->data << endl;
-    cout << "Node 2 Data: " << node2->data << endl;
-    cout << "Node 3 Data: " << node3->data << endl;
-
-    cout << "Node 1 Address (head): " << head << endl;
-    cout << "Node 1 Next: " << node1->next << endl;
-    cout << "Node 2 Next: " << node2->next << endl;
-    cout << "Node 3 Next: " << node3->next << endl;
-
-   
-    delete node3;
-    delete node2;
-    delete node1;
-
+    cout<<"Node 1 Data: "<<head->data<<endl;
+    cout<<"Node 2 Data: "<<head->next->data<<endl;
+    cout<<"Node 3 Data: "<<head->next->next->data<<endl;
+    cout<<"Node 1 Address (head): "<<head<<endl;
+    cout<<"Node 1 Next: "<<head->next<<endl;
+    cout<<"Node 2 Next: "<<head->next->next<<endl;
+    cout<<"Node 3 Next: "<<head->next->next->next<<endl;
     return 0;
 }
