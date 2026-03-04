@@ -105,29 +105,64 @@ using namespace std;
 // }
 
 //Linked list with head
-struct Node {
-    int data;     
-    Node* next;   
-};
-int main (){
-    Node *head=new Node();
-    head->data=10;
-    head->next=nullptr;
+// struct Node {
+//     int data;     
+//     Node* next;   
+// };
+// int main (){
+//     Node *head=new Node();
+//     head->data=10;
+//     head->next=nullptr;
     
-    head->next=new Node();
-    head->next->data=20;
-    head->next->next=nullptr;
+//     head->next=new Node();
+//     head->next->data=20;
+//     head->next->next=nullptr;
 
-    head->next->next=new Node();
-    head->next->next->data=30;
-    head->next->next->next=nullptr;
+//     head->next->next=new Node();
+//     head->next->next->data=30;
+//     head->next->next->next=nullptr;
 
-    cout<<"Node 1 Data: "<<head->data<<endl;
-    cout<<"Node 2 Data: "<<head->next->data<<endl;
-    cout<<"Node 3 Data: "<<head->next->next->data<<endl;
-    cout<<"Node 1 Address (head): "<<head<<endl;
-    cout<<"Node 1 Next: "<<head->next<<endl;
-    cout<<"Node 2 Next: "<<head->next->next<<endl;
-    cout<<"Node 3 Next: "<<head->next->next->next<<endl;
+//     cout<<"Node 1 Data: "<<head->data<<endl;
+//     cout<<"Node 2 Data: "<<head->next->data<<endl;
+//     cout<<"Node 3 Data: "<<head->next->next->data<<endl;
+//     cout<<"Node 1 Address (head): "<<head<<endl;
+//     cout<<"Node 1 Next: "<<head->next<<endl;
+//     cout<<"Node 2 Next: "<<head->next->next<<endl;
+//     cout<<"Node 3 Next: "<<head->next->next->next<<endl;
+//     return 0;
+// }
+
+
+//Traversing through linked list
+struct Node {
+    int data;
+    Node* next;
+};
+
+int main() {
+
+    Node* head = new Node();
+    Node* second = new Node();
+    Node* third = new Node();
+
+    
+    head->data = 10;
+    head->next = second;
+
+    second->data = 20;
+    second->next = third;
+
+    third->data = 30;
+    third->next = nullptr;
+
+    Node* temp = head;   
+
+    cout << "Linked List elements are: ";
+
+    while (temp != nullptr) {
+        cout << temp->data << " ";
+        temp = temp->next;   
+    }
+
     return 0;
 }
