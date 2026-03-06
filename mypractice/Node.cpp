@@ -134,10 +134,42 @@ using namespace std;
 
 
 //Traversing through linked list
+// struct Node{
+// int data;
+// Node*next;
+// };
+// int main(){
+//     Node* head=new Node();
+//     head->data=10;
+//     head->next=nullptr;
+//     head->next=new Node();
+//     head->next->data=20;
+//     head->next->next=nullptr;
+//     head->next->next=new Node();
+//     head->next->next->data=30;
+//     head->next->next->next=nullptr;
+
+//     Node* temp=head;
+//     while(temp!=nullptr){
+//         cout<<"Node Data: "<<temp->data<<endl;
+//         temp=temp->next;
+//     }
+// }
+
 struct Node{
 int data;
 Node*next;
 };
+int countlist(Node* head){
+    int count=0;
+    Node* temp=head;
+    while(temp!=nullptr){
+        count++;
+        temp=temp->next;
+    }
+    return count;
+   }
+
 int main(){
     Node* head=new Node();
     head->data=10;
@@ -149,9 +181,5 @@ int main(){
     head->next->next->data=30;
     head->next->next->next=nullptr;
 
-    Node* temp=head;
-    while(temp!=nullptr){
-        cout<<"Node Data: "<<temp->data<<endl;
-        temp=temp->next;
-    }
-}
+   
+   cout<<"Number of nodes in the linked list: "<<countlist(head)<<endl;}
