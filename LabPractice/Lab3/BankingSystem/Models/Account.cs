@@ -21,10 +21,10 @@ namespace BankingSystem.Models
             this.accountId = accountId;
             this.name = name;
             this.permissions = permissions;
+            this.balance = 0;
             this.transactions = new double[100];
             this.transactionCount = 0;
         }
-
         public abstract void Deposit(double amount);
         public abstract void Withdraw(double amount);
         public abstract void SaveToFile();
