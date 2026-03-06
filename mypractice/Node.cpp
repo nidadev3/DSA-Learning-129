@@ -185,39 +185,75 @@ using namespace std;
 //    cout<<"Number of nodes in the linked list: "<<countlist(head)<<endl;}
 
 // Searching for a value in the linked list
-struct Node{
+// struct Node{
+//     int data;
+//     Node*next;
+// };
+// bool search(Node*head, int value){
+//     Node *temp=head;
+//     while(temp!=nullptr){
+//         if(temp->data==value){
+//             return true;
+//         }
+//         temp=temp->next;
+//     }
+//     return false;
+// }
+// int main (){
+//     Node* head=new Node();
+//     head->data=10;
+//     head->next=nullptr;
+//     head->next=new Node();
+//     head->next->data=20;
+//     head->next->next=nullptr;
+//     head->next->next=new Node();
+//     head->next->next->data=30;
+//     head->next->next->next=nullptr;
+
+//     int valueToSearch;
+
+//     cout<<"Enter the value to search in the linked list: ";
+//     cin>>valueToSearch;
+//     if(search(head, valueToSearch)){
+//         cout<<"Value "<<valueToSearch<<" found in the linked list."<<endl;
+//     } else {
+//         cout<<"Value "<<valueToSearch<<" not found in the linked list."<<endl;
+//     }
+//     return 0;
+// }
+
+// Adding a new node at the beginning of the linked list
+#include <iostream>
+using namespace std;
+
+struct Node {
     int data;
-    Node*next;
+    Node* next;
 };
-bool search(Node*head, int value){
-    Node *temp=head;
-    while(temp!=nullptr){
-        if(temp->data==value){
-            return true;
-        }
-        temp=temp->next;
-    }
-    return false;
+
+Node* addAtBeginning(Node* head, int value) {
+    Node* newNode = new Node();
+    newNode->data = value;
+    newNode->next = head;
+    head = newNode;
+    return head;
 }
-int main (){
-    Node* head=new Node();
-    head->data=10;
-    head->next=nullptr;
-    head->next=new Node();
-    head->next->data=20;
-    head->next->next=nullptr;
-    head->next->next=new Node();
-    head->next->next->data=30;
-    head->next->next->next=nullptr;
 
-    int valueToSearch;
+int main() {
+    Node* head = nullptr;
 
-    cout<<"Enter the value to search in the linked list: ";
-    cin>>valueToSearch;
-    if(search(head, valueToSearch)){
-        cout<<"Value "<<valueToSearch<<" found in the linked list."<<endl;
-    } else {
-        cout<<"Value "<<valueToSearch<<" not found in the linked list."<<endl;
+  
+    head = addAtBeginning(head, 10);
+    head = addAtBeginning(head, 20);
+    head = addAtBeginning(head, 30);
+
+    
+    cout << "Linked list: " << endl;
+    Node* temp = head;
+    while(temp != nullptr) {
+        cout << "Node Data: " << temp->data << endl;
+        temp = temp->next;
     }
+
     return 0;
 }
