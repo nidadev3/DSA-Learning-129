@@ -17,13 +17,24 @@ using namespace std;
 //     return 0;
 // }
 
+// int main(){
+//     int arr[5]={4,3,-18,-19,0};
+//     int smallest=0;
+//     for(int i=0;i<5;i++){
+//         if(arr[i]<smallest){
+//             smallest=arr[i];
+//         }   
+//     }
+//     cout<<"Smallest element in the array: "<<smallest<<endl;
+// }
+
 int main(){
     int arr[5]={4,3,-18,-19,0};
-    int smallest=0;
+    int Largest=0;
     for(int i=0;i<5;i++){
-        if(arr[i]<smallest){
-            smallest=arr[i];
+        if(arr[i]>Largest){
+            Largest=arr[i];
         }   
     }
-    cout<<"Smallest element in the array: "<<smallest<<endl;
+    cout<<"Largest element in the array: "<<Largest<<endl;
 }
