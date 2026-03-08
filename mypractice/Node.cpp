@@ -223,37 +223,70 @@ using namespace std;
 // }
 
 // Adding a new node at the beginning of the linked list
-#include <iostream>
-using namespace std;
+// #include <iostream>
+// using namespace std;
 
+// struct Node {
+//     int data;
+//     Node* next;
+// };
+
+// Node* addAtBeginning(Node* head, int value) {
+//     Node* newNode = new Node();
+//     newNode->data = value;
+//     newNode->next = head;
+//     head = newNode;
+//     return head;
+// }
+
+// int main() {
+//     Node* head = nullptr;
+
+  
+//     head = addAtBeginning(head, 10);
+//     head = addAtBeginning(head, 20);
+//     head = addAtBeginning(head, 30);
+
+    
+//     cout << "Linked list: " << endl;
+//     Node* temp = head;
+//     while(temp != nullptr) {
+//         cout << "Node Data: " << temp->data << endl;
+//         temp = temp->next;
+//     }
+
+//     return 0;
+// }
+
+//Adding node at the end of the linked list
 struct Node {
     int data;
     Node* next;
 };
-
-Node* addAtBeginning(Node* head, int value) {
-    Node* newNode = new Node();
-    newNode->data = value;
-    newNode->next = head;
-    head = newNode;
+Node* addAtEnd(Node* head, int value){
+    Node* newNode=new Node();
+    newNode->data=value;
+    newNode->next=nullptr;
+    if(head==nullptr){
+        head=newNode;
+        return head;
+    }
+    Node* temp=head;
+    while(temp->next!=nullptr){
+        temp=temp->next;
+    }
+    temp->next=newNode;
     return head;
 }
-
-int main() {
-    Node* head = nullptr;
-
-  
-    head = addAtBeginning(head, 10);
-    head = addAtBeginning(head, 20);
-    head = addAtBeginning(head, 30);
-
-    
-    cout << "Linked list: " << endl;
-    Node* temp = head;
-    while(temp != nullptr) {
-        cout << "Node Data: " << temp->data << endl;
-        temp = temp->next;
+int main(){
+    Node* head=nullptr;
+    head=addAtEnd(head, 10);
+    head=addAtEnd(head, 20);
+    head=addAtEnd(head, 30);
+    cout<<"Linked list: "<<endl;
+    Node* temp=head;
+    while(temp!=nullptr){
+        cout<<"Node Data: "<<temp->data<<endl;
+        temp=temp->next;
     }
-
-    return 0;
 }
