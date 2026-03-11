@@ -4,7 +4,7 @@ struct Node{
     int data;
     Node* link;
 };
-Node *addatBeginning(Node* &head,int value){
+void *addatBeginning(Node* &head,int value){
     Node* newnode=new Node();
     newnode->data=value;
     newnode->link=head;
