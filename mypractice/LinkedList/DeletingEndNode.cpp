@@ -13,16 +13,25 @@ Node *deleteatend(Node* head){
         delete head;
         return nullptr;
     }
+    // else{
+    //     Node *temp=head;
+    //     Node* temp2=head;
+    //     while(temp->link!=nullptr){
+    //         temp2=temp;
+    //         temp=temp->link;
+    //     }
+    //     temp2->link=nullptr;
+    //     delete temp;
+    //     temp=nullptr;
+    //     return head;
+    // }
     else{
-        Node *temp=head;
-        Node* temp2=head;
-        while(temp->link!=nullptr){
-            temp2=temp;
+        Node* temp=head;
+        while(temp->link->link!=nullptr){
             temp=temp->link;
         }
-        temp2->link=nullptr;
-        delete temp;
-        temp=nullptr;
+       delete temp->link;
+        temp->link=nullptr;
         return head;
     }
 }
