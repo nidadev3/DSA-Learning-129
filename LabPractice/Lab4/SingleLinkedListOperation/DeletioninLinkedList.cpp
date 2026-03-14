@@ -75,7 +75,7 @@ void deleteEnd(Node* &head) {
     Node* temp = head;
     while(temp->link->link != nullptr) {
         temp = temp->link;
-    }
+    } 
     
     delete temp->link;
     temp->link = nullptr;
