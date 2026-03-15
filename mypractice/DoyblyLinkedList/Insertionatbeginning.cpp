@@ -17,15 +17,6 @@ void printforward(Node *head){
     cout << "NULL\n";
 }
 
-void printbackward(Node *head){
-    Node *ptr = head;
-
-    while(ptr != nullptr){
-        cout << ptr->data << " <-> ";
-        ptr = ptr->prev;
-    }
-    cout << "NULL\n";
-}
 
 void insertatbeginning(Node *&head,int value){
 
