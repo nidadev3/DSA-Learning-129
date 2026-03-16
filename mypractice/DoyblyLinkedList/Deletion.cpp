@@ -62,8 +62,22 @@ void deletefromend(Node *&head)
 }
 
 //Delete form any positon 
-void deleteanypos(Node* &head,int pos){
-    
+void deleteatPos(Node* &head, int pos)
+{
+    Node* temp = head;
+
+    for(int i = 1; i < pos-1; i++)
+        temp = temp->next;
+
+    Node* nodeToDelete = temp->next;
+    Node* ptr = nodeToDelete->next;
+
+    if(ptr != NULL)
+        ptr->prev = temp;
+
+    temp->next = ptr;
+
+    delete nodeToDelete;
 }
 
 // Display list
@@ -117,6 +131,11 @@ int main()
     deletefromend(head);
     display(head);
 
-   
+    cout<<"After deleteatPos(2): ";
+    deleteatPos(head,2);   
+    display(head);
+
+    
+
     return 0;
 }
