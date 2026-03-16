@@ -7,60 +7,100 @@ struct Node{
     Node* prev;
 };
 
-//method 1
+// Method 1: delete from head
 void deletefromhead(Node* &head)
 {
-    if(head == NULL)
+    if(head == nullptr)
         return;
 
     Node* temp = head;
     head = head->next;
 
-    if(head != NULL)
-        head->prev = NULL;
+    if(head != nullptr)
+        head->prev = nullptr;
 
     delete temp;
 }
 
-//method 2
+// Method 2: delete from head
 void deleteFromHead(Node* &head)
 {
-    if(head == NULL)
+    if(head == nullptr)
         return;
 
     head = head->next;
 
-    if(head != NULL)
+    if(head != nullptr)
     {
         delete head->prev;
-        head->prev = NULL;
+        head->prev = nullptr;
     }
 }
 
-//display function
+// Delete from end
+void deletefromend(Node *&head)
+{
+    if(head == nullptr)
+    {
+        cout<<"List is empty"<<endl;
+        return;
+    }
+
+    Node* temp = head;
+
+    while(temp->next != nullptr)
+    {
+        temp = temp->next;
+    }
+
+    if(temp->prev != nullptr)
+        temp->prev->next = nullptr;
+    else
+        head = nullptr;
+
+    delete temp;
+}
+
+//Delete form any positon 
+void deleteanypos(Node* &head,int pos){
+    
+}
+
+// Display list
 void display(Node* head)
 {
     Node* temp = head;
-    while(temp != NULL)
+
+    while(temp != nullptr)
     {
         cout << temp->data << " ";
         temp = temp->next;
     }
+
     cout << endl;
 }
 
 int main()
 {
-    //creating list: 10 <-> 20 <-> 30
-    Node* head = new Node{10,NULL,NULL};
-    Node* second = new Node{20,NULL,NULL};
-    Node* third = new Node{30,NULL,NULL};
+    // Creating nodes
+    Node* head = new Node{10,nullptr,nullptr};
+    Node* second = new Node{20,nullptr,nullptr};
+    Node* third = new Node{30,nullptr,nullptr};
+    Node* fourth = new Node{40,nullptr,nullptr};
+    Node* fifth = new Node{50,nullptr,nullptr};
 
+    // Linking nodes
     head->next = second;
     second->prev = head;
 
     second->next = third;
     third->prev = second;
+
+    third->next = fourth;
+    fourth->prev = third;
+
+    fourth->next = fifth;
+    fifth->prev = fourth;
 
     cout<<"Original List: ";
     display(head);
@@ -73,5 +113,10 @@ int main()
     deleteFromHead(head);
     display(head);
 
+    cout<<"After deletefromend(): ";
+    deletefromend(head);
+    display(head);
+
+   
     return 0;
 }
