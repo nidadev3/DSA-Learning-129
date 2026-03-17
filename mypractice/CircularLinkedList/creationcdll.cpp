@@ -55,6 +55,7 @@ void display(Node* head){
     cout << endl;
 }
 
+//insert at start 
 void insertAtBeginning(Node*& head,int value)
 {
     Node* newnode = new Node;
@@ -77,4 +78,29 @@ void insertAtBeginning(Node*& head,int value)
     head->prev = newnode;
 
     head = newnode;
+}
+
+
+//insertatend
+
+void insertAtEnd(Node*& head,int value)
+{
+    Node* newnode = new Node;
+    newnode->data = value;
+
+    if(head == nullptr)
+    {
+        newnode->next = newnode;
+        newnode->prev = newnode;
+        head = newnode;
+        return;
+    }
+
+    Node* last = head->prev;
+
+    last->next = newnode;
+    newnode->prev = last;
+
+    newnode->next = head;
+    head->prev = newnode;
 }
