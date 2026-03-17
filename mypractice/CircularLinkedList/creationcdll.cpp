@@ -104,3 +104,46 @@ void insertAtEnd(Node*& head,int value)
     newnode->next = head;
     head->prev = newnode;
 }
+//insertatanypostion
+void insertAtPosition(Node*& head, int pos, int value) {
+    Node* newnode = new Node();
+    newnode->data = value;
+
+    if(head == nullptr) {  
+        head = newnode;
+        newnode->next = head;
+        newnode->prev = head;
+        return;
+    }
+
+    
+    if(pos == 1) {
+        Node* last = head->prev;
+        newnode->next = head;
+        newnode->prev = last;
+        last->next = newnode;
+        head->prev = newnode;
+        head = newnode;
+        return;
+    }
+
+    
+    Node* temp = head;
+    int count = 1;
+    while(count < pos-1 && temp->next != head) {
+        temp = temp->next;
+        count++;
+    }
+
+    Node* last = temp->next;      
+
+    temp->next = newnode;
+    newnode->prev = temp;
+    newnode->next = last;
+    last->prev = newnode;
+
+  
+    if(temp == head->prev) {
+        head->prev = newnode;
+    }
+}
