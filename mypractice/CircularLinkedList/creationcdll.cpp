@@ -208,3 +208,75 @@ void update(Node* head,int pos,int value)
 
     temp->data = value;
 }
+int main() {
+    Node* head = nullptr;  
+    int choice, value, pos;
+
+    do {
+        cout << "\n--- Circular Doubly Linked List Menu ---\n";
+        cout << "1. Create List\n";
+        cout << "2. Display List\n";
+        cout << "3. Insert at Beginning\n";
+        cout << "4. Insert at End\n";
+        cout << "5. Insert at Position\n";
+        cout << "6. Delete at Beginning\n";
+        cout << "7. Delete at End\n";
+        cout << "8. Delete at Position\n";
+        cout << "9. Update Node\n";
+        cout << "0. Exit\n";
+        cout << "Enter your choice: ";
+        cin >> choice;
+
+        switch(choice) {
+            case 1:
+                creation(head);
+                break;
+            case 2:
+                display(head);
+                break;
+            case 3:
+                cout << "Enter value to insert at beginning: ";
+                cin >> value;
+                insertAtBeginning(head, value);
+                break;
+            case 4:
+                cout << "Enter value to insert at end: ";
+                cin >> value;
+                insertAtEnd(head, value);
+                break;
+            case 5:
+                cout << "Enter position to insert: ";
+                cin >> pos;
+                cout << "Enter value to insert: ";
+                cin >> value;
+                insertAtPosition(head, pos, value);
+                break;
+            case 6:
+                deleteAtBeginning(head);
+                break;
+            case 7:
+                deleteAtEnd(head);
+                break;
+            case 8:
+                cout << "Enter position to delete: ";
+                cin >> pos;
+                deleteAtPosition(head, pos);
+                break;
+            case 9:
+                cout << "Enter position to update: ";
+                cin >> pos;
+                cout << "Enter new value: ";
+                cin >> value;
+                update(head, pos, value);
+                break;
+            case 0:
+                cout << "Exiting program...\n";
+                break;
+            default:
+                cout << "Invalid choice! Try again.\n";
+        }
+
+    } while(choice != 0);
+
+    return 0;
+}
