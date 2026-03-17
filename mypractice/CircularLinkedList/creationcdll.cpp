@@ -164,3 +164,18 @@ void deleteAtBeginning(Node*& head)
 
     delete temp;
 }
+
+//delete at end
+void deleteAtEnd(Node*& head)
+{
+    if(head == nullptr)
+    return;
+
+    Node* last = head->prev;
+    Node* secondlast = last->prev;
+
+    secondlast->next = head;
+    head->prev = secondlast;
+
+    delete last;
+}
