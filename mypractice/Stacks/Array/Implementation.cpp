@@ -32,4 +32,12 @@ class stack{
         }
 
     }
+     int peek() {
+        if (top == -1) {
+            cout << "Stack is empty!\n";
+            return -1;
+        }
+        return arr[top];
+    }
+
 }
