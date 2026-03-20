@@ -16,7 +16,7 @@ public:
 
     // Push function
     void push(int x) {
-        if (top == capacity - 1) {
+        if (isFull()) {
             cout << "The stack is overflow" << endl;
             return;
         }
@@ -31,6 +31,15 @@ public:
             return -1;
         }
         return arr[top--];
+    }
+    //isFull function
+    bool isFull(){
+        if(top==capacity-1){
+            return 1;
+        }
+        else{
+            return 0;
+        }
     }
 
     // Peek function
