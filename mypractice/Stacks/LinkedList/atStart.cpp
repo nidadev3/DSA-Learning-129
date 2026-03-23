@@ -24,4 +24,17 @@ class stack{
         top=newnode;
         cout<<x<<"pushed in to the stack";
     }
+    void pop (){
+        if(isEmpty){
+            cout<<"Stack is overflow";
+            return -1;
+        }
+        Node* temp=top;
+        cout<<top->data<<"is popped";
+        top=top->next;
+        delete temp;
+
+
+    }
+    
 }
