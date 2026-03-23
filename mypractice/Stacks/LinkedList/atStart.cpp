@@ -8,3 +8,20 @@ struct Node{
         link=nullptr
     }
 };
+class stack{
+    private:
+    Node* top;
+    public:
+    stack(){
+        top=nullptr;
+    }
+    bool isEmpty(){
+        retun top=nullptr;
+    }
+    void push(int x){
+        Node* newnode=new Node(x);
+        newnode->next=top;
+        top=newnode;
+        cout<<x<<"pushed in to the stack";
+    }
+}
