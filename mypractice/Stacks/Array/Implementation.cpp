@@ -1,73 +1,94 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
 
-class stack {
+class Stack {
 private:
-    int arr[100];
-    int top;
-    int capacity;
+    int* arr;        // pointer to our array
+    int  top;        // index of top element
+    int  capacity;   // max number of elements
 
 public:
-    // Constructor
-    stack(int capacity) {
-        this->capacity = capacity;
-        top = -1;
+
+    // Constructor — create stack of given size
+    Stack(int size) {
+        capacity = size;
+        arr      = new int[capacity];  // allocate memory
+        top      = -1;                 // empty stack
     }
 
-    // Push function
+    // Destructor — free memory when done
+    ~Stack() {
+        delete[] arr;
+    }
+
+    // Check if stack is empty
+    bool isEmpty() {
+        return top == -1;
+    }
+
+    // Check if stack is full
+    bool isFull() {
+        return top == capacity - 1;
+    }
+
+    // Push — add item on top
     void push(int x) {
         if (isFull()) {
-            cout << "The stack is overflow" << endl;
+            cout << "Overflow! Stack is full.\n";
             return;
         }
         arr[++top] = x;
-        cout << x << " pushed to stack" << endl;
+        cout << x << " pushed.\n";
     }
 
-    // Pop function
+    // Pop — remove and return top item
     int pop() {
-        if (top == -1) {
-            cout << "Underflow! Stack is empty." << endl;
+        if (isEmpty()) {
+            cout << "Underflow! Stack is empty.\n";
             return -1;
         }
         return arr[top--];
     }
-    //isFull function
-    bool isFull(){
-        if(top==capacity-1){
-            return 1;
-        }
-        else{
-            return 0;
-        }
-    }
 
-    // Peek function
+    // Peek — see top without removing
     int peek() {
-        if (top == -1) {
-            cout << "Stack is empty!" << endl;
+        if (isEmpty()) {
+            cout << "Stack is empty!\n";
             return -1;
         }
         return arr[top];
     }
 
-    // Check if empty
-    bool isEmpty() {
-        return top == -1;
+    // Size — how many items currently in stack
+    int size() {
+        return top + 1;
+    }
+
+    // Display — print all items top to bottom
+    void display() {
+        if (isEmpty()) {
+            cout << "Stack is empty.\n";
+            return;
+        }
+        cout << "Stack (top to bottom): ";
+        for (int i = top; i >= 0; i--)
+            cout << arr[i] << " ";
+        cout << "\n";
     }
 };
 
 int main() {
-    stack s(5);
+    Stack s(5);
 
     s.push(10);
     s.push(20);
     s.push(30);
+    s.display();
 
-    cout << "Top is: " << s.peek() << endl;
-    cout << "Popped: " << s.pop() << endl;
-    cout << "Popped: " << s.pop() << endl;
-    cout << "Empty? " << s.isEmpty() << endl;
+    cout << "Peek: "  << s.peek() << "\n";
+    cout << "Pop:  "  << s.pop()  << "\n";
+    cout << "Size: "  << s.size() << "\n";
+    s.display();
 
     return 0;
 }

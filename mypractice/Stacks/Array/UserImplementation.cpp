@@ -16,7 +16,7 @@ public:
 
     bool isFull() {
         if (top == capacity - 1) {
-            cout << "Stack is overflow" << endl;
+           0 cout << "Stack is overflow" << endl;
             return true;
         }
         return false;
