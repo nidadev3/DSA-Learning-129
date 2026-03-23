@@ -36,5 +36,11 @@ class stack{
 
 
     }
-    
+    void peak(){
+          if(isEmpty){
+            cout<<"Stack is overflow";
+            return -1;
+        }
+      return  cout<<Top->data<<"is the top value";
+    }
 }
