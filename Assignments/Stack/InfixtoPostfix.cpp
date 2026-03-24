@@ -27,6 +27,16 @@ char pop(){
 char peek(){
 return stackarr[top];
 }
+int precedence(char ch) {
+    if (ch == '+' || ch == '-') return 1;
+    if (ch == '*' || ch == '/') return 2;
+    return 0;
+}
+
+
+
+
+
 int main (){
     char exp[100];
     cout<<"Enter the expression:";
