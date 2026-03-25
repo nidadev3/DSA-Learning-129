@@ -18,7 +18,7 @@ void push (char x){
 char pop(){
     if(isEmpty()){
         cout << "Stack underflow";
-        return -1;
+        return '\0';
     }
     char val = stackarr[top];
     top--;
@@ -33,13 +33,28 @@ int precedence(char ch) {
     return 0;
 }
 
-
-
-
-
 int main (){
     char exp[100];
     cout<<"Enter the expression:";
     cin.getline(exp,100);
+for (int i=0;exp[i]!='\0'; i++){
+   if ((exp[i] >= 'A' && exp[i] <= 'Z') || (exp[i] >= 'a' && exp[i] <= 'z')) {
+            cout << exp[i];
+        }
+       else {
+            while (!isEmpty() && precedence(peek()) >= precedence(exp[i])) {
+                cout << peek();
+                pop();
+            }
+            push(exp[i]);
+        }
+}
+while (!isEmpty()) {
+        cout << peek();
+        pop();
+    }
+
+    return 0;
+
 
 }
