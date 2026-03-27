@@ -1,8 +1,0 @@
-C:\Users\User\Documents\dsa\LabPractice\Lab3\BankingSystem\bin\Debug\BankingSystem.exe.config
-C:\Users\User\Documents\dsa\LabPractice\Lab3\BankingSystem\bin\Debug\BankingSystem.exe
-C:\Users\User\Documents\dsa\LabPractice\Lab3\BankingSystem\bin\Debug\BankingSystem.pdb
-C:\Users\User\Documents\dsa\LabPractice\Lab3\BankingSystem\obj\Debug\BankingSystem.csproj.AssemblyReference.cache
-C:\Users\User\Documents\dsa\LabPractice\Lab3\BankingSystem\obj\Debug\BankingSystem.csproj.CoreCompileInputs.cache
-C:\Users\User\Documents\dsa\LabPractice\Lab3\BankingSystem\obj\Debug\BankingSystem.exe
-C:\Users\User\Documents\dsa\LabPractice\Lab3\BankingSystem\obj\Debug\BankingSystem.pdb
-C:\Users\User\Documents\dsa\LabPractice\Lab3\BankingSystem\obj\Debug\BankingSystem.exe.config
