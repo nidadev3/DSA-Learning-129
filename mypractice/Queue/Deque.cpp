@@ -135,6 +135,8 @@ int main() {
     dq.push_back(10);
     dq.push_back(15);
 
+    cout << dq.front() << " " << dq.back() << endl;
+
     dq.pop_back();
     dq.pop_front();
 
@@ -142,8 +144,7 @@ int main() {
     dq.push_front(10);
     dq.push_front(5);
 
-    dq.pop_back();
-    dq.pop_front();
+    cout << dq.front() << " " << dq.back() << endl;
 
     return 0;
 }
