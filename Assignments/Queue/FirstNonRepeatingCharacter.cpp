@@ -1,56 +1,77 @@
 #include <iostream>
 using namespace std;
-class queue{private:
-int *arr;
-int capacity;
-int size;
-int front;
-int rear;
+
+class queue {
+private:
+    char *arr;
+    int capacity;
+    int size;
+    int front;
+    int rear;
+
 public:
-queue(int cap){
-    capacity=cap;
-    arr=new int[capacity];
-    size=0;
-    front=0;
-rear=-1;
-}
-int getCapacity() {
-    return capacity;
-}
-bool rempty(){
-    return size==0;
+    queue(int cap) {
+        capacity = cap;
+        arr = new char[capacity];
+        size = 0;
+        front = 0;
+        rear = -1;
+    }
 
-}
-bool rfull(){
-    return size==capacity;}
-    void enqueue(int value){
-        if(rfull()){
-            cout<<"Queue is full\n";
-            return;
+    bool rempty() {
+        return size == 0;
+    }
 
-        }
-        rear=(rear+1)%capacity;
-        arr[rear]=value;    
+    bool rfull() {
+        return size == capacity;
+    }
+
+    void enqueue(char value) {
+        if (rfull()) return;
+        rear = (rear + 1) % capacity;
+        arr[rear] = value;
         size++;
-
     }
-int dequeue(){
-    if(rempty()){
-        cout<<"Queue is empty\n";
-        return -1;
-    }
-    int value=arr[front];
-    front=(front+1)%capacity;
-    size--;
-    return value;
-}};
-void firstNonRepeating(string stream){
 
+    void dequeue() {
+        if (rempty()) return;
+        front = (front + 1) % capacity;
+        size--;
+    }
+
+    char getFront() {
+        if (rempty()) return '#';
+        return arr[front];
+    }
+};
+
+void firstNonRepeating(string stream) {
+    int freq[26] = {0};
+    queue q(100);
+
+    for (int i = 0; i < stream.length(); i++) {
+        char ch = stream[i];
+
+        freq[ch - 'a']++;
+        q.enqueue(ch);
+
+        while (!q.rempty() && freq[q.getFront() - 'a'] > 1) {
+            q.dequeue();
+        }
+
+        if (q.rempty()) {
+            cout << "Queue is empty";
+        } else {
+            cout << q.getFront() << " ";
+        }
+    }
 }
-int main (){
+
+int main() {
     string stream;
-    cout<<"Enter the stream:";
-    cin>>;
-firstNonRepeating(string stream);
-return 0;
+    cout << "Enter the stream: ";
+    cin >> stream;
+
+    firstNonRepeating(stream);
+    return 0;
 }
