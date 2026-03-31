@@ -44,3 +44,13 @@ int dequeue(){
     size--;
     return value;
 }};
+void firstNonRepeating(string stream){
+
+}
+int main (){
+    string stream;
+    cout<<"Enter the stream:";
+    cin>>;
+firstNonRepeating(string stream);
+return 0;
+}
