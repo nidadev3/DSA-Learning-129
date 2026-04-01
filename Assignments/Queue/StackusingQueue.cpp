@@ -36,3 +36,25 @@ return q1.front();
 return q1.empty();
     }
 };
+int main() {
+    MyStack s;
+
+    s.push(10);
+    s.push(20);
+    s.push(30);
+
+    cout << "Top: " << s.top() << endl;
+
+    cout << "Pop: " << s.pop() << endl;
+
+    cout << "Top after pop: " << s.top() << endl;
+
+    cout << "Is empty? " << s.empty() << endl;
+
+    s.pop();
+    s.pop();
+
+    cout << "Is empty after removing all? " << s.empty() << endl;
+
+    return 0;
+}
