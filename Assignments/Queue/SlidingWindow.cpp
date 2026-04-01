@@ -32,7 +32,16 @@ void dequeue(){
     }
 front++;
 }
-int getfront(){
-    return front;
+int findMax(){
+    if(isempty()){
+        cout<<"Queue is underflow.";
+    }
+    int max=arr[front];
+    for(int i=front;i<=rear;i++){
+        if(arr[i]>max){
+            max=arr[i];
+        }
+        return max;
+    }
 }
-}
+};
