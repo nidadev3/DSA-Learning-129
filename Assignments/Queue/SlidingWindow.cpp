@@ -17,7 +17,7 @@ public:
     }
 
     bool isFull() {
-        return rear == size - 1;
+        return (rear - front + 1) == size;  // Fixed: count actual elements
     }
 
     bool isEmpty() {
@@ -43,12 +43,16 @@ public:
 
     int findMax() {
         int maxVal = arr[front];
-        for(int i = front; i <= rear; i++) {
+        for(int i = front + 1; i <= rear; i++) {
             if(arr[i] > maxVal) {
                 maxVal = arr[i];
             }
         }
         return maxVal;
+    }
+
+    ~Queue() {
+        delete[] arr;
     }
 };
 
@@ -57,7 +61,7 @@ int main() {
     cout << "Enter array size: ";
     cin >> n;
 
-    int arr[n];
+    int* arr = new int[n];
 
     for(int i = 0; i < n; i++) {
         cout << "Enter element " << i+1 << ": ";
@@ -74,6 +78,7 @@ int main() {
         q.enqueue(arr[i]);
     }
 
+    cout << "Maximums: ";
     cout << q.findMax() << " ";
 
     for(int i = k; i < n; i++) {
@@ -82,5 +87,7 @@ int main() {
         cout << q.findMax() << " ";
     }
 
+    cout << endl;
+    delete[] arr;
     return 0;
 }
