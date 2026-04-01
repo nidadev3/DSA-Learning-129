@@ -15,13 +15,20 @@ while(!q1.empty()){
 }
 q1.push(x);
 while(!q2.empty()){
-    q1.push(q2.front());
-    q2.pop();
+ q1.push(q2.front());
+q2.pop();
 }
     }
-    int pop(){
 
-    }
+
+ int pop(){
+int ans=q1.front();
+q1.pop();
+return ans;
+ }
+
+
+
     int top(){
 
     }
