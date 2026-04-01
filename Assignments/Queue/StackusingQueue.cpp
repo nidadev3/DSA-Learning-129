@@ -30,9 +30,9 @@ return ans;
 
 
     int top(){
-
+return q1.front();
     }
     bool empty(){
-
+return q1.empty();
     }
 };
