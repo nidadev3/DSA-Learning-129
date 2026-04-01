@@ -31,4 +31,21 @@ return s1.top();
     bool empty(){
     return s1.empty();
     }
+};
+int main() {
+    MyQueue q;
+
+    q.push(10);
+    q.push(20);
+    q.push(30);
+
+    cout << "Front: " << q.peek() << endl;
+
+    cout << "Pop: " << q.pop() << endl;
+
+    cout << "Front after pop: " << q.peek() << endl;
+
+    cout << "Is empty? " << q.empty() << endl;
+
+    return 0;
 }
