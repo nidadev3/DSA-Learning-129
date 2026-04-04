@@ -1,16 +1,16 @@
 #include<iostream>
 using namespace std;
-int ascending(int n){
+int decending(int n){
 if(n==0){
     return 0;
 }
 cout<< n <<" ";
-return ascending(n-1);
+return decending(n-1);
 }
 int main(){
     int n;
     cout<<"Enter the number:";
     cin>>n;
-    ascending(n);
+    decending(n);
     return 0;
 }
