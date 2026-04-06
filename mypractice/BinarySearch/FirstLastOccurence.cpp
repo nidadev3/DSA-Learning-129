@@ -35,3 +35,28 @@ int firstOccurrence(int arr[], int n, int key) {
     }
     return ans;
 }
+
+
+//LastOccurence
+int lastOccurrence(int arr[], int n, int key) {
+    int start = 0, end = n - 1;
+    int ans = -1;
+
+    while(start <= end) {
+        int mid = (start + end) / 2;
+
+        if(arr[mid] == key) {
+            ans = mid;
+            start = mid + 1;
+        }
+        else if(arr[mid] < key) {
+            start = mid + 1;
+        }
+        else {
+            end = mid - 1;
+        }
+    }
+    return ans;
+}
+
+
