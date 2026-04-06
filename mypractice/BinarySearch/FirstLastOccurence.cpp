@@ -59,4 +59,43 @@ int lastOccurrence(int arr[], int n, int key) {
     return ans;
 }
 
+int main() {
+    int n;
 
+    cout << "Enter size of array: ";
+    cin >> n;
+
+    int arr[n];
+
+    cout << "Enter elements:\n";
+    for(int i = 0; i < n; i++) {
+        cin >> arr[i];
+    }
+
+    sortArray(arr, n);
+
+    cout << "Sorted array:\n";
+    for(int i = 0; i < n; i++) {
+        cout << arr[i] << " ";
+    }
+
+    int key;
+    cout << "\nEnter element to search: ";
+    cin >> key;
+
+    
+    int first = firstOccurrence(arr, n, key);
+    int last = lastOccurrence(arr, n, key);
+
+    if(first == -1) {
+        cout << "Element not found";
+    } else {
+        cout << "\nFirst Occurrence Index: " << first;
+        cout << "\nLast Occurrence Index: " << last;
+
+        int total = last - first + 1;
+        cout << "\nTotal Occurrences: " << total;
+    }
+
+    return 0;
+}
