@@ -28,3 +28,24 @@ void LinkedList::insert(Complaint c) {
 
     temp->next = newNode;
 }
+
+//display of the history
+void LinkedList::display() {
+    if (head == NULL) {
+        cout << "No history available!" << endl;
+        return;
+    }
+
+    Node* temp = head;
+
+    while (temp != NULL) {
+        cout << "ID: " << temp->data.id << endl;
+        cout << "Name: " << temp->data.studentName << endl;
+        cout << "Category: " << temp->data.category << endl;
+        cout << "Urgent: " << (temp->data.isUrgent ? "Yes" : "No") << endl;
+        cout << "Status: " << temp->data.status << endl;
+        cout << "-------------------" << endl;
+
+        temp = temp->next;
+    }
+}
