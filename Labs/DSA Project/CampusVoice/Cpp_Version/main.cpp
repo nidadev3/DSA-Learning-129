@@ -112,6 +112,14 @@ do {
             normalQueue.display();
         }
 
+        //Resolved Complaints
+         else if (choice == 4) {
+
+            cout << "\n--- RESOLVED COMPLAINTS ---\n";
+            resolvedStack.display();
+        }
+       
+
 
     while(choice !=6);
     return 0;}
