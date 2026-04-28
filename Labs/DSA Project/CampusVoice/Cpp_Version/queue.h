@@ -6,9 +6,10 @@ private:
     Complaint arr[100];
     int front;
     int rear;
-//functions
+
     public:
-    Queue();
+    Queue();//constructor
+    //functions
     void enqueue(Complaint c);
     Complaint dequeue();
     bool isEmpty();
