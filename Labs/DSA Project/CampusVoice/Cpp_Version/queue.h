@@ -5,4 +5,14 @@ class Queue {
 private:
     Complaint arr[100];
     int front;
-    int rear;}
+    int rear;
+//functions
+    public:
+    Queue();
+    void enqueue(Complaint c);
+    Complaint dequeue();
+    bool isEmpty();
+    void display();
+
+};
+#endif
