@@ -1,3 +1,7 @@
+#ifndef COMPLAINT_H
+#define COMPLAINT_H
+#include <string>
+using namespace std;
 struct Complaint{
     int id;
     string studentName;
@@ -6,3 +10,5 @@ struct Complaint{
     bool isUrgent;
     string status;   //pending or resolved
 };
+
+#endif
