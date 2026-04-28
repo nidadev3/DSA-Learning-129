@@ -102,5 +102,16 @@ do {
             }
         }
 
+        //pending complaints
+          else if (choice == 3) {
+
+            cout << "\n--- URGENT COMPLAINTS ---\n";
+            urgentQueue.display();
+
+            cout << "\n--- NORMAL COMPLAINTS ---\n";
+            normalQueue.display();
+        }
+
+
     while(choice !=6);
     return 0;}
