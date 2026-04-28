@@ -22,13 +22,14 @@ function initStudentPortal() {
     document.getElementById('complaintForm').addEventListener('submit', function (e) {
         e.preventDefault();
 
-        const title = document.getElementById('cTitle').value;
+        const studentName = document.getElementById('cStudentName').value;
+        const category = document.getElementById('cCategory').value;
         const desc = document.getElementById('cDesc').value;
         const priority = document.getElementById('cPriority').value;
         const isUrgent = priority === 'urgent';
 
         // Add to data structures
-        DSA.submitComplaint(title, desc, isUrgent);
+        DSA.submitComplaint(studentName, category, desc, isUrgent);
 
         // Reset form
         this.reset();
@@ -55,16 +56,17 @@ function renderStudentHistory() {
         if (c.status === 'in-progress') badgeClass = 'badge-progress';
         if (c.status === 'resolved') badgeClass = 'badge-resolved';
 
-        let prioBadge = c.isUrgent ? `<span class="badge badge-urgent">Urgent</span>` : `<span class="badge badge-pending" style="color: #cbd5e1; border-color: #475569; background: transparent;">Normal</span>`;
+        let prioBadge = c.isUrgent ? `<span class="badge badge-urgent">Urgent</span>` : `<span class="badge badge-default">Normal</span>`;
 
         return `
         <div class="complaint-item">
             <div class="complaint-header">
-                <div>
-                    <span class="complaint-title">${c.title}</span>
-                    <span class="complaint-meta"> | ${c.id}</span>
-                </div>
+                <span class="complaint-student">${c.studentName}</span>
                 <div>${prioBadge} <span class="badge ${badgeClass}">${c.status}</span></div>
+            </div>
+            <div class="complaint-info-row">
+                <span class="badge badge-default" style="font-size: 0.7rem; background: #e2e8f0;">${c.category}</span>
+                <span class="complaint-meta">ID: ${c.id}</span>
             </div>
             <div class="complaint-meta">${c.description}</div>
         </div>
@@ -102,8 +104,14 @@ function renderQueue(elementId, items) {
     const html = items.map(c => `
         <div class="complaint-item">
             <div class="complaint-header">
-                <span class="complaint-title">${c.title} <small>(${c.id})</small></span>
+                <div>
+                    <span class="complaint-student">${c.studentName}</span>
+                    <span class="complaint-meta" style="margin-left:8px;">${c.id}</span>
+                </div>
                 <span class="badge badge-pending">Waiting</span>
+            </div>
+            <div class="complaint-info-row">
+                <span class="badge badge-default" style="font-size: 0.7rem; background: #e2e8f0;">${c.category}</span>
             </div>
             <div class="complaint-meta">${c.description}</div>
             <div class="complaint-actions">
@@ -130,8 +138,14 @@ function renderInProgress() {
     const html = complaints.map(c => `
         <div class="complaint-item" style="border-left: 4px solid #f59e0b;">
             <div class="complaint-header">
-                <span class="complaint-title">${c.title} <small>(${c.id})</small></span>
+                <div>
+                    <span class="complaint-student">${c.studentName}</span>
+                    <span class="complaint-meta" style="margin-left:8px;">${c.id}</span>
+                </div>
                 <span class="badge badge-progress">In Progress</span>
+            </div>
+            <div class="complaint-info-row">
+                <span class="badge badge-default" style="font-size: 0.7rem; background: #e2e8f0;">${c.category}</span>
             </div>
             <div class="complaint-meta">${c.description}</div>
             <div class="complaint-actions">
@@ -157,10 +171,16 @@ function renderStack() {
 
     // Stack is visualized by mapping it from top to bottom (reverse array)
     const html = stack.slice().reverse().map(c => `
-        <div class="complaint-item" style="border-left: 4px solid #10b981; opacity: 0.8;">
+        <div class="complaint-item" style="border-left: 4px solid #10b981; background-color: #f8fafc;">
             <div class="complaint-header">
-                <span class="complaint-title"><del>${c.title}</del> <small>(${c.id})</small></span>
+                <div>
+                    <span class="complaint-student"><del>${c.studentName}</del></span>
+                    <span class="complaint-meta" style="margin-left:8px;">${c.id}</span>
+                </div>
                 <span class="badge badge-resolved">Resolved</span>
+            </div>
+            <div class="complaint-info-row">
+                <span class="badge badge-default" style="font-size: 0.7rem; background: #e2e8f0;">${c.category}</span>
             </div>
             <div class="complaint-meta">Popped from Stack &bull; ${new Date(c.resolvedAt).toLocaleTimeString()}</div>
         </div>

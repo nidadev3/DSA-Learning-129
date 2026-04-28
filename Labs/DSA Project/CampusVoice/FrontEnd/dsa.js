@@ -30,12 +30,13 @@ class dsaManager {
         localStorage.setItem(this.storageKey, JSON.stringify(data));
     }
 
-    // Submit a new complaint
-    submitComplaint(title, description, isUrgent) {
+    // Submit a new complaint, matching the C++ Object fields
+    submitComplaint(studentName, category, description, isUrgent) {
         const data = this.getData();
         const newComplaint = {
             id: `CMP-${data.nextId++}`,
-            title,
+            studentName,
+            category,
             description,
             isUrgent,
             status: 'pending',

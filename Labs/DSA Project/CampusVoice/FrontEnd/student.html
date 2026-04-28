@@ -21,13 +21,21 @@
 
         <div class="grid-2">
             <!-- Submit Form -->
-            <div class="glass-card">
+            <div class="solid-card">
                 <h2 class="section-title">New Complaint</h2>
                 <form id="complaintForm">
                     <div class="form-group">
-                        <label for="cTitle">Complaint Title</label>
-                        <input type="text" id="cTitle" class="form-control" required
-                            placeholder="E.g., Broken WiFi in Library">
+                        <label for="cStudentName">Student Name</label>
+                        <input type="text" id="cStudentName" class="form-control" required placeholder="Enter Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="cCategory">Category</label>
+                        <select id="cCategory" class="form-control">
+                            <option value="Lab">Lab</option>
+                            <option value="Hostel">Hostel</option>
+                            <option value="Cafe">Cafe</option>
+                            <option value="Other">Other</option>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label for="cDesc">Description</label>
@@ -46,7 +54,7 @@
             </div>
 
             <!-- Tracking History / Array -->
-            <div class="glass-card">
+            <div class="solid-card">
                 <h2 class="section-title">My Complaints (Array)</h2>
                 <div id="studentHistoryList">
                     <!-- Javascript populates this -->
