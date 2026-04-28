@@ -13,3 +13,13 @@ bool Queue::isEmpty() {
     return (front > rear);
 }
 
+//AddComplaint
+void Queue::enqueue(Complaint c) {
+    if (rear >= 99) {
+        cout << "Queue is full!" << endl;
+        return;
+    }
+
+    arr[++rear] = c;
+    cout << "Complaint added to queue successfully!" << endl;
+}
