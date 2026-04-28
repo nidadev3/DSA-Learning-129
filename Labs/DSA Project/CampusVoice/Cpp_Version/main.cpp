@@ -40,7 +40,7 @@ int main() {
             c.id = nextID++;
 
             cout << "Enter Student Name: ";
-            cin >> c.studentName;
+            getline(cin, c.studentName);
 
             cout << "Enter Description: ";
             cin >> c.description;
@@ -91,7 +91,13 @@ int main() {
 
                     resolvedStack.push(c);
                     historyList.insert(c);
-
+                 //update array
+                  for (int i = 0; i < totalComplaints; i++) {
+        if (allComplaints[i].id == c.id) {
+            allComplaints[i].status = "resolved";
+            break;
+        }
+    }
                     cout << "Complaint VERIFIED and RESOLVED!\n";
                 }
                 else {
@@ -99,6 +105,13 @@ int main() {
                     c.status = "in progress";
 
                     normalQueue.enqueue(c);
+                    //update array
+                     for (int i = 0; i < totalComplaints; i++) {
+        if (allComplaints[i].id == c.id) {
+            allComplaints[i].status = "in progress";
+            break;
+        }
+    }
 
                     cout << "Complaint is IN PROGRESS. Please wait...\n";
                 }
