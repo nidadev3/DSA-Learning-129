@@ -23,3 +23,14 @@ void Queue::enqueue(Complaint c) {
     arr[++rear] = c;
     cout << "Complaint added to queue successfully!" << endl;
 }
+
+//RemoveComplaint
+Complaint Queue::dequeue() {
+    if (isEmpty()) {
+        cout << "Queue is empty!" << endl;
+        Complaint empty;
+        return empty;
+    }
+
+    return arr[front++];
+}
