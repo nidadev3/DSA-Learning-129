@@ -7,4 +7,13 @@ class Stack {
 private:
     Complaint arr[100];
     int top;
+
+    public:
+    //constructor
+    Stack();
+    void push(Complaint c);
+    Complaint pop();
+    bool isEmpty();
+    void display();
 };
+#endif
