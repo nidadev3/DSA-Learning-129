@@ -118,6 +118,22 @@ do {
             cout << "\n--- RESOLVED COMPLAINTS ---\n";
             resolvedStack.display();
         }
+
+        //All Complaints
+
+         else if (choice == 5) {
+
+            cout << "\n--- ALL COMPLAINTS ---\n";
+
+            for (int i = 0; i < totalComplaints; i++) {
+
+                cout << "ID: " << allComplaints[i].id << endl;
+                cout << "Name: " << allComplaints[i].studentName << endl;
+                cout << "Category: " << allComplaints[i].category << endl;
+                cout << "Status: " << allComplaints[i].status << endl;
+                cout << "----------------------\n";
+            }
+        }
        
 
 
