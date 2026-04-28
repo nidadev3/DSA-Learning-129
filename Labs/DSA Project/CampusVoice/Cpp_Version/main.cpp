@@ -62,7 +62,45 @@ do {
 
             cout << "Complaint submitted successfully!\n";
         }
+          // Process Complaint
+           else if (choice == 2) {
 
-        
+            Complaint c;
+
+            if (!urgentQueue.isEmpty())
+                c = urgentQueue.dequeue();
+            else
+                c = normalQueue.dequeue();
+
+            if (c.id != -1) {
+
+                cout << "\nProcessing Complaint ID: " << c.id << endl;
+
+                int adminChoice;
+                cout << "1. Mark as Resolved\n";
+                cout << "2. Mark as In Progress\n";
+                cout << "Enter choice: ";
+                cin >> adminChoice;
+
+                if (adminChoice == 1) {
+
+                    c.status = "resolved";
+
+                    resolvedStack.push(c);
+                    historyList.insert(c);
+
+                    cout << "Complaint VERIFIED and RESOLVED!\n";
+                }
+                else {
+
+                    c.status = "in progress";
+
+                    normalQueue.enqueue(c);
+
+                    cout << "Complaint is IN PROGRESS. Please wait...\n";
+                }
+            }
+        }
+
     while(choice !=6);
     return 0;}
