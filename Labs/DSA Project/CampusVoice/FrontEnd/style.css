@@ -1,5 +1,5 @@
 /* Modern Light Theme System for CampusVoice */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
 :root {
     --bg-color: #f8fafc;
@@ -22,9 +22,9 @@
     --warning-light: #fffbeb;
 
     --card-bg: #ffffff;
-    --radius: 12px;
+    --radius: 16px;
     --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
-    --shadow-hover: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.03);
+    --shadow-hover: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.02);
 }
 
 * {
@@ -43,6 +43,12 @@ body {
     line-height: 1.6;
 }
 
+/* Home Body Patterns */
+.home-body {
+    background-image: radial-gradient(#e2e8f0 1px, transparent 1px);
+    background-size: 24px 24px;
+}
+
 header {
     padding: 2.5rem 2rem;
     text-align: center;
@@ -50,17 +56,39 @@ header {
     border-bottom: 1px solid var(--border-color);
 }
 
+.hero-header {
+    padding: 4rem 2rem;
+    background: transparent;
+    border-bottom: none;
+}
+
 header h1 {
-    font-weight: 700;
+    font-weight: 800;
     font-size: 2.25rem;
     color: var(--text-primary);
     margin-bottom: 0.5rem;
     letter-spacing: -0.02em;
 }
 
+.hero-header h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+}
+
+.gradient-text {
+    background: linear-gradient(135deg, #2563eb, #7c3aed, #ec4899);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
 header p {
     color: var(--text-secondary);
     font-size: 1.1rem;
+}
+
+.hero-subtitle {
+    font-size: 1.25rem;
+    font-weight: 500;
 }
 
 .container {
@@ -87,15 +115,91 @@ h2.section-title {
     border-radius: var(--radius);
     padding: 2rem;
     box-shadow: var(--shadow);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
 }
 
 .solid-card:hover {
-    transform: translateY(-2px);
+    transform: translateY(-4px);
     box-shadow: var(--shadow-hover);
 }
 
-/* Buttons */
+/* Home Menu Layout */
+.home-menu {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 2.5rem;
+}
+
+.home-card {
+    text-align: center;
+    width: 360px;
+    cursor: pointer;
+    text-decoration: none;
+    color: var(--text-primary);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.student-card {
+    border-top: 4px solid #3b82f6;
+}
+
+.student-card:hover {
+    background: linear-gradient(to bottom, #eff6ff, #ffffff);
+    border-color: #93c5fd;
+}
+
+.admin-card {
+    border-top: 4px solid #8b5cf6;
+}
+
+.admin-card:hover {
+    background: linear-gradient(to bottom, #f5f3ff, #ffffff);
+    border-color: #c4b5fd;
+}
+
+.card-icon {
+    width: 72px;
+    height: 72px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    margin-top: 0.5rem;
+}
+
+.student-icon {
+    background: #dbeafe;
+    color: #3b82f6;
+}
+
+.admin-icon {
+    background: #ede9fe;
+    color: #8b5cf6;
+}
+
+.card-icon svg {
+    width: 36px;
+    height: 36px;
+}
+
+.home-card h2 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.home-card p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+/* Buttons and forms (omitted repetitive unchanged parts) */
 .btn {
     display: inline-flex;
     align-items: center;
@@ -119,24 +223,15 @@ h2.section-title {
     background-color: var(--primary-hover);
 }
 
-.btn-urgent {
-    background-color: var(--urgent);
-    color: white;
-}
-
-.btn-urgent:hover {
-    background-color: var(--urgent-hover);
-}
-
 .btn-outline {
     background-color: #ffffff;
-    border: 1px solid var(--border-color);
+    border: 1px solid #cbd5e1;
     color: var(--text-primary);
 }
 
 .btn-outline:hover {
     background-color: #f8fafc;
-    border-color: #cbd5e1;
+    border-color: #94a3b8;
 }
 
 .btn-success {
@@ -157,7 +252,6 @@ h2.section-title {
     background-color: #d97706;
 }
 
-/* Forms */
 .form-group {
     margin-bottom: 1.5rem;
 }
@@ -176,7 +270,6 @@ h2.section-title {
     border-radius: 8px;
     border: 1px solid #cbd5e1;
     background: #ffffff;
-    color: var(--text-primary);
     font-size: 1rem;
     outline: none;
     transition: border-color 0.2s, box-shadow 0.2s;
@@ -195,7 +288,6 @@ select.form-control {
     background-size: 0.65rem auto;
 }
 
-/* Status Badges */
 .badge {
     display: inline-block;
     padding: 0.25rem 0.75rem;
@@ -236,45 +328,12 @@ select.form-control {
     border: 1px solid #a7f3d0;
 }
 
-/* Layouts */
 .grid-2 {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 2rem;
 }
 
-/* Home Menu Layout */
-.home-menu {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 2rem;
-    min-height: 40vh;
-}
-
-.home-card {
-    text-align: center;
-    width: 320px;
-    cursor: pointer;
-    text-decoration: none;
-    color: var(--text-primary);
-    border: 2px solid transparent;
-}
-
-.home-card:hover {
-    border-color: var(--primary-light);
-}
-
-.home-card h2 {
-    font-size: 1.5rem;
-    margin-bottom: 0.75rem;
-}
-
-.home-card p {
-    color: var(--text-secondary);
-}
-
-/* Complaint Item */
 .complaint-item {
     background: #ffffff;
     border: 1px solid var(--border-color);
@@ -345,7 +404,6 @@ select.form-control {
     font-size: 0.95rem;
 }
 
-/* Nav */
 .top-nav {
     display: flex;
     justify-content: space-between;
