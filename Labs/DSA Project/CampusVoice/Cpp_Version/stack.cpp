@@ -22,3 +22,14 @@ void Stack::push(Complaint c) {
     arr[++top] = c;
     cout << "Complaint marked as resolved!" << endl;
 }
+
+//pop
+Complaint Stack::pop() {
+    if (isEmpty()) {
+        cout << "Stack is empty!" << endl;
+        Complaint empty = {-1, "", "", "", false, "empty"};
+        return empty;
+    }
+
+    return arr[top--];
+}
