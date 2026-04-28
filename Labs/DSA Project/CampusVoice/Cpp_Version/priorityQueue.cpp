@@ -36,23 +36,20 @@ void PriorityQueue::enqueue(Complaint c) {
 }
 
 //Remove
-void PriorityQueue::enqueue(Complaint c) {
-    if (size >= 100) {
-        cout << "Priority Queue Full!" << endl;
-        return;
+Complaint PriorityQueue::dequeue() {
+    if (isEmpty()) {
+        cout << "Priority Queue Empty!" << endl;
+        Complaint empty;
+        return empty;
     }
 
-    int i;
-    for (i = size - 1; i >= 0; i--) {
-        if (arr[i].isUrgent == false && c.isUrgent == true) {
-            arr[i + 1] = arr[i];
-        } else {
-            break;
-        }
+    Complaint c = arr[0];
+
+    for (int i = 0; i < size - 1; i++) {
+        arr[i] = arr[i + 1];
     }
 
-    arr[i + 1] = c;
-    size++;
+    size--;
 
-    cout << "Complaint added to Priority Queue!" << endl;
+    return c;
 }
