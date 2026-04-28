@@ -10,3 +10,7 @@ Queue normalQueue;
 PriorityQueue urgentQueue;
 Stack resolvedStack;
 LinkedList historyList;
+//Array for all complaints
+Complaint allComplaints[100];
+int totalComplaints = 0;
+int nextID = 1;
