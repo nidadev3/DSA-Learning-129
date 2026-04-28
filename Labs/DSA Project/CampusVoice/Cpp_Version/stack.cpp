@@ -11,3 +11,14 @@ Stack::Stack() {
 bool Stack::isEmpty() {
     return top == -1;
 }
+
+//push
+void Stack::push(Complaint c) {
+    if (top >= 99) {
+        cout << "Stack Overflow!" << endl;
+        return;
+    }
+
+    arr[++top] = c;
+    cout << "Complaint marked as resolved!" << endl;
+}
