@@ -5,35 +5,35 @@
 #include "LinkedList.h"
 
 using namespace std;
-//objects
+
+// objects
 Queue normalQueue;
 PriorityQueue urgentQueue;
 Stack resolvedStack;
 LinkedList historyList;
-//Array for all complaints
+
+// Array for all complaints
 Complaint allComplaints[100];
 int totalComplaints = 0;
 int nextID = 1;
 
-//main
-int main(){
+int main() {
 
-int choice;
+    int choice;
 
-do {
-    cout << "\n===== CampusVoice System =====\n";
-    cout << "1. Submit Complaint\n";
-    cout << "2. Process Next Complaint\n";
-    cout << "3. View Pending Complaints\n";
-    cout << "4. View Resolved Complaints\n";
-    cout << "5. View All Complaints\n";
-    cout << "6. Exit\n";
-    cout << "Enter choice: ";
-    cin >> choice;}
+    do {
+        cout << "\n===== CampusVoice System =====\n";
+        cout << "1. Submit Complaint\n";
+        cout << "2. Process Next Complaint\n";
+        cout << "3. View Pending Complaints\n";
+        cout << "4. View Resolved Complaints\n";
+        cout << "5. View All Complaints\n";
+        cout << "6. Exit\n";
+        cout << "Enter choice: ";
+        cin >> choice;
 
-
-    //1-Submit complaint
-     if (choice == 1) {
+        // 1 - Submit Complaint
+        if (choice == 1) {
 
             Complaint c;
 
@@ -52,18 +52,21 @@ do {
             cin >> c.isUrgent;
 
             c.status = "pending";
-            //in array
-           allComplaints[totalComplaints++] = c;
-           //to queue
-           if (c.isUrgent)
+
+            // store in array
+            allComplaints[totalComplaints++] = c;
+
+            // send to queue
+            if (c.isUrgent)
                 urgentQueue.enqueue(c);
             else
                 normalQueue.enqueue(c);
 
             cout << "Complaint submitted successfully!\n";
         }
-          // Process Complaint
-           else if (choice == 2) {
+
+        // 2 - Process Complaint
+        else if (choice == 2) {
 
             Complaint c;
 
@@ -102,8 +105,8 @@ do {
             }
         }
 
-        //pending complaints
-          else if (choice == 3) {
+        // 3 - Pending
+        else if (choice == 3) {
 
             cout << "\n--- URGENT COMPLAINTS ---\n";
             urgentQueue.display();
@@ -112,16 +115,15 @@ do {
             normalQueue.display();
         }
 
-        //Resolved Complaints
-         else if (choice == 4) {
+        // 4 - Resolved
+        else if (choice == 4) {
 
             cout << "\n--- RESOLVED COMPLAINTS ---\n";
             resolvedStack.display();
         }
 
-        //All Complaints
-
-         else if (choice == 5) {
+        // 5 - All
+        else if (choice == 5) {
 
             cout << "\n--- ALL COMPLAINTS ---\n";
 
@@ -134,8 +136,10 @@ do {
                 cout << "----------------------\n";
             }
         }
-       
 
+    } while (choice != 6);
 
-    while(choice !=6);
-    return 0;}
+    cout << "Exiting system...\n";
+
+    return 0;
+}
