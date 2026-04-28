@@ -34,3 +34,19 @@ Complaint Queue::dequeue() {
 
     return arr[front++];
 }
+
+//DisplayComplaints
+void Queue::display() {
+    if (isEmpty()) {
+        cout << "No pending complaints!" << endl;
+        return;
+    }
+
+    for (int i = front; i <= rear; i++) {
+       cout << "ID: " << arr[i].id << endl;
+cout << "Name: " << arr[i].studentName << endl;
+cout << "Category: " << arr[i].category << endl;
+cout << "Urgent: " << (arr[i].isUrgent ? "Yes" : "No") << endl;
+cout << "Status: " << arr[i].status << endl;
+cout << "------------------------" << endl;
+    }}
