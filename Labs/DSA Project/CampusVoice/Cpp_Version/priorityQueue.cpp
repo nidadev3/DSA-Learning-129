@@ -53,3 +53,18 @@ Complaint PriorityQueue::dequeue() {
 
     return c;
 }
+
+//Display
+void PriorityQueue::display() {
+    if (isEmpty()) {
+        cout << "No urgent complaints!" << endl;
+        return;
+    }
+
+    for (int i = 0; i < size; i++) {
+        cout << "ID: " << arr[i].id << endl;
+        cout << "Name: " << arr[i].studentName << endl;
+        cout << "Urgent: " << (arr[i].isUrgent ? "Yes" : "No") << endl;
+        cout << "-------------------" << endl;
+    }
+}
