@@ -35,7 +35,24 @@ void preOrder(Node* root){
 
 //inorder
 void inOrder(Node* root){
+void inOrderIterative(Node* root) {
+    stack<Node*> st;
+    Node* curr = root;
 
+    while (curr != NULL || !st.empty()) {
+
+        while (curr != NULL) {
+            st.push(curr);
+            curr = curr->left;
+        }
+
+        curr = st.top();
+        st.pop();
+
+        cout << curr->data << " ";
+
+        curr = curr->right;
+    }}
 }
 
 
