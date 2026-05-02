@@ -28,3 +28,20 @@ Node* createTree(){
     root->right=createTree();
     return root;
 }
+void inorder(Node* root) {
+    if (root == NULL) return;
+
+    inorder(root->left);
+    cout << root->data << " ";
+    inorder(root->right);
+}
+int main() {
+    cout << "Create your tree:\n";
+
+    Node* root = createTree();
+
+    cout << "\nInorder Traversal: ";
+    inorder(root);
+
+    return 0;
+}
