@@ -20,5 +20,11 @@ Node* createTree(){
     if(value==-1){
         return NULL;
     }
-    
+    //create node
+    Node* root=new Node(value);
+    cout<<"Enter left child of"<<value<<endl;
+    root->left=createTree();
+    cout<<"Enter right child of"<<value<<endl;
+    root->right=createTree();
+    return root;
 }
