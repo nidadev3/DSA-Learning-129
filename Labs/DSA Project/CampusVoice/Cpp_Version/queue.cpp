@@ -43,7 +43,7 @@ void Queue::display() {
     }
 
     for (int i = front; i <= rear; i++) {
-       cout << "ID: " << arr[i].id << endl;
+cout << "ID: " << arr[i].id << endl;
 cout << "Name: " << arr[i].studentName << endl;
 cout << "Category: " << arr[i].category << endl;
 cout << "Urgent: " << (arr[i].isUrgent ? "Yes" : "No") << endl;
