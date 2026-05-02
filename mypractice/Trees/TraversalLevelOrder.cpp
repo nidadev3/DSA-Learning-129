@@ -19,16 +19,16 @@ void levelOrder(Node* root) {
     Q.push(root);
 
     while (!Q.empty()) {
-        Node* current = Q.front();   // ✔ front() not Front()
-        Q.pop();                     // ✔ pop() must be called
+        Node* current = Q.front();  
+        Q.pop();                   
 
         cout << current->data << " ";
 
         if (current->left != NULL)
-            Q.push(current->left);   // ✔ pass node
+            Q.push(current->left);  
 
         if (current->right != NULL)
-            Q.push(current->right);  // ✔ pass node
+            Q.push(current->right);  
     }
 }
 
