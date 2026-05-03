@@ -16,7 +16,7 @@ struct Node {
 
 int height(Node* root) {
     if (root == NULL)
-        return 0;
+        return -1;
 
     queue<Node*> q;
     q.push(root);
