@@ -20,4 +20,10 @@ int main() {
         adj[u].push_back({v, w});
         adj[v].push_back({u, w});
     }
+
+    // heuristic array
+      vector<int> h(n+1);
+    for(int i = 1; i <= n; i++){
+        cin >> h[i];
+    }
 }
