@@ -21,9 +21,20 @@ int main() {
         adj[v].push_back({u, w});
     }
 
-    // heuristic array
+    // heuristic array calculation of h(n)
       vector<int> h(n+1);
+      cout << "Enter heuristic values for each node:\n";
     for(int i = 1; i <= n; i++){
         cin >> h[i];
     }
+    int start, goal;
+cout << "Enter start (source): ";
+cin >> start;
+cout << "Enter goal (destination): ";
+cin>>goal;
+
+//calculation of g(n)
+vector<int> dist(n+1, INT_MAX);
+dist[start] = 0; 
+
 }
