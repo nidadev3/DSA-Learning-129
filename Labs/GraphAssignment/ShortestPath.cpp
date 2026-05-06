@@ -37,4 +37,16 @@ cin>>goal;
 vector<int> dist(n+1, INT_MAX);
 dist[start] = 0; 
 
+//priority queue
+ priority_queue<pair<int,int>, vector<pair<int,int>>, greater<pair<int,int>>> pq;
+
+    pq.push({h[start], start});
+
+    while(!pq.empty()){
+
+        int node = pq.top().second;
+        pq.pop();
+         if(node == goal){
+            cout << "Reached goal. Cost = " << dist[node];
+            return 0;}
 }
