@@ -49,4 +49,21 @@ dist[start] = 0;
          if(node == goal){
             cout << "Reached goal. Cost = " << dist[node];
             return 0;}
+             for(auto x : adj[node]){
+
+            int v = x.first;
+            int w = x.second;
+
+            if(dist[node] + w < dist[v]){
+
+                dist[v] = dist[node] + w;
+
+                int f = dist[v] + h[v];
+
+                pq.push({f, v});
+            }
+        }
+    }
+
+    cout << "No path found";
 }
