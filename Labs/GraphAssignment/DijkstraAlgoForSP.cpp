@@ -52,4 +52,11 @@ int main() {
             }
         }
     }
+      cout << "\nShortest distances from source:\n";
+
+    for(int i = 1; i <= n; i++){
+        cout << i << " -> " << dist[i] << endl;
+    }
+
+    return 0;
 }
