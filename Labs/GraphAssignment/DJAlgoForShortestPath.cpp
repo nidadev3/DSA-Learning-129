@@ -66,5 +66,24 @@ int main() {
     }
 
     
-   
+     
+    cout << "\nShortest distance = " << dist[dest] << endl;
+
+    cout << "Path: ";
+
+    vector<int> path;
+    int node = dest;
+
+    while(parent[node] != node){
+        path.push_back(node);
+        node = parent[node];
+    }
+
+    path.push_back(source);
+
+    for(int i = path.size() - 1; i >= 0; i--){
+        cout << path[i] << " ";
+    }
+
+    return 0;
 }
