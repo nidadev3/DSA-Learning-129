@@ -1,4 +1,5 @@
 #include<iostream>
+#include<vector>
 using namespace std;
 int outDegree(int node,vector<int>adj[]){
    return adj[node].size();
