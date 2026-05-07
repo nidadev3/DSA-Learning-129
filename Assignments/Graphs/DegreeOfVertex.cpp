@@ -7,7 +7,7 @@ int outDegree(int node,vector<int>adj[]){
 
 int inDegree(int node,vector<int>adj[],int n){
 
-    
+
 }
 int main (){
     int n,m;
@@ -43,5 +43,7 @@ adj[v].push_back(u);
      int node;
     cout << "\nEnter node to calculate degree: ";
     cin >> node;
-    
+     if(type == 0) {
+        cout << "Degree (Undirected) = " << adj[node].size() << endl;
+    }
 }
