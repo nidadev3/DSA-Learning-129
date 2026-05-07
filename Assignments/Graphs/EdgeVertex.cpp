@@ -2,8 +2,14 @@
 #include<vector>
 using namespace std;
 bool edgeExists(int u, int v, vector<int> adj[]) {
+  for(int i = 0; i < adj[u].size(); i++) {
+        if(adj[u][i] == v) {
+            return true;
+        }
+    }
 
-    
+    return false;
+
 }
 
 int main() {
