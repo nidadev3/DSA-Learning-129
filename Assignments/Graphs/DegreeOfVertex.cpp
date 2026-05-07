@@ -6,7 +6,17 @@ int outDegree(int node,vector<int>adj[]){
 }
 
 int inDegree(int node,vector<int>adj[],int n){
+ int count = 0;
 
+    for(int i = 0; i < n; i++) {
+        for(int j = 0; j < adj[i].size(); j++) {
+            if(adj[i][j] == node) {
+                count++;
+            }
+        }
+    }
+
+    return count;
 
 }
 int main (){
