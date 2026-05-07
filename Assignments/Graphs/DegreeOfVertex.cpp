@@ -1,7 +1,7 @@
 #include<iostream>
 using namespace std;
 int outDegree(int node,vector<int>adj[]){
-
+   return adj[node].size();
 
 }
 
@@ -46,4 +46,10 @@ adj[v].push_back(u);
      if(type == 0) {
         cout << "Degree (Undirected) = " << adj[node].size() << endl;
     }
+      else {
+        cout << "Out-degree = " << outDegree(node, adj) << endl;
+        cout << "In-degree = " << inDegree(node, adj, n) << endl;
+    }
+
+    return 0;
 }
