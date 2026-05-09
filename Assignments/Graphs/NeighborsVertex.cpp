@@ -4,6 +4,16 @@ using namespace std;
 
 
 void displayNeighbors(int node, vector<int> adj[]) {
+cout << "Neighbors of vertex "
+         << node << " are: ";
+
+    for(int i = 0; i < adj[node].size(); i++) {
+        cout << adj[node][i] << " ";
+    }
+
+    cout << endl;
+
+
 
 }
 
