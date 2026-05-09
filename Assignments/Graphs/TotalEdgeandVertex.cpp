@@ -2,12 +2,12 @@
 usingg namespace std;
 
 int countVertices(int n){
-
+return n;
 
 }
 int countEdges(){
 
-    
+
 }
 int main() {
 
