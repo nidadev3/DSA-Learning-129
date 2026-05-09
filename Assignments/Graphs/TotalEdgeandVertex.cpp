@@ -1,14 +1,28 @@
 #include<iostream>
-usingg namespace std;
+#include<vector>
+using namespace std;
 
 int countVertices(int n){
 return n;
 
 }
-int countEdges(){
+int countEdges(vector<int> adj[], int n, int type){
+  int total = 0;
 
+    for(int i = 0; i < n; i++) {
+        total += adj[i].size();
+    }
 
+    // Undirected graph 
+    if(type == 0) {
+        return total / 2;
+    }
+
+    // Directed graph 
+    return total;
 }
+
+
 int main() {
 
     int n, m;
