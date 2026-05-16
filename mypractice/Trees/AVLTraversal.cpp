@@ -20,3 +20,11 @@ Node* createNode(int value)
 
     return newNode;
 }
+//get height
+int getHeight(Node* root)
+{
+    if(root == NULL)
+        return 0;
+
+    return root->height;
+}
