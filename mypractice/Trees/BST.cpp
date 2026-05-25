@@ -25,4 +25,19 @@ Node* insert(Node*root, int value){
    }
    return root;
 }
- 
+ //search
+ bool search(Node*root,int value){
+    if (root==NULL){
+        return false;
+    }
+    else if(root->data==value){
+        return true;
+    }
+     else if(value<root->data){
+        return search(root->left,value);
+   }
+   else if(value>root->data){
+    return search(root->right,value);
+   }
+   retun false;
+ }
