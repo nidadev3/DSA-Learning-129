@@ -188,21 +188,6 @@ int main() {
         else if (choice == 9) {
             bst.traversalMenu();
         }
- 
-        // 10 - AVL Search
-        else if (choice == 10) {
-            int id;
-            cout << "Enter Complaint ID to search in AVL: ";
-            cin >> id;
-            avl.search(id);
-        }
- 
-        // 11 - AVL Inorder
-        else if (choice == 11) {
-            avl.inorder();
-        }
- 
-        // 12 - Graph
         else if (choice == 12) {
             graph.graphMenu();
         }

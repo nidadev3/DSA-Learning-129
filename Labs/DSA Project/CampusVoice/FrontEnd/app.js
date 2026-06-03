@@ -1,6 +1,6 @@
 /**
  * app.js - DOM interaction and bindings to dsa.js structures
- * drive the premium dark Academic Tech features.
+ * Drives the premium white minimalist CampusVoice frontend.
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -28,7 +28,7 @@ function escapeHtml(str) {
               .replace(/'/g, '&#039;');
 }
 
-// Custom Toast notification system
+// Custom Toast notification system (Polished light-border alert)
 function showToast(message, type = 'info') {
     const container = document.getElementById('toast-container');
     if (!container) return;
@@ -52,7 +52,7 @@ function showToast(message, type = 'info') {
         toast.classList.remove('show');
         setTimeout(() => {
             toast.remove();
-        }, 400);
+        }, 300);
     }, 4000);
 }
 
@@ -130,7 +130,7 @@ function renderStudentHistory() {
                 <span class="complaint-meta font-mono">${c.id}</span>
                 <span class="complaint-meta" style="margin-left: auto;">${date}</span>
             </div>
-            <div class="complaint-meta" style="color: var(--text-primary); font-size: 0.95rem; margin-top: 4px;">
+            <div class="complaint-meta" style="color: var(--text-primary); font-size: 0.9rem; margin-top: 2px;">
                 ${escapeHtml(c.description)}
             </div>
         </div>
@@ -171,25 +171,6 @@ function initTabSystem() {
         });
     });
 
-    // Dynamic Tree structure selection (BST/AVL toggle)
-    const structureRadios = document.querySelectorAll('input[name="treeStructure"]');
-    structureRadios.forEach(radio => {
-        radio.addEventListener('change', function () {
-            const isAvl = this.value === 'avl';
-            const preBtn = document.getElementById('preorderBtn');
-            const postBtn = document.getElementById('postorderBtn');
-            if (isAvl) {
-                if (preBtn) preBtn.style.display = 'none';
-                if (postBtn) postBtn.style.display = 'none';
-            } else {
-                if (preBtn) preBtn.style.display = 'inline-flex';
-                if (postBtn) postBtn.style.display = 'inline-flex';
-            }
-            resetTraversalChain();
-            const card = document.getElementById('searchResultCard');
-            if (card) card.classList.remove('show');
-        });
-    });
 }
 
 function renderAdminViews() {
@@ -244,12 +225,12 @@ function renderQueue(elementId, items) {
                 <span class="badge badge-default">${escapeHtml(c.category)}</span>
                 <span class="complaint-meta">${date}</span>
             </div>
-            <div class="complaint-meta" style="color: var(--text-primary); font-size: 0.9rem;">
+            <div class="complaint-meta" style="color: var(--text-primary); font-size: 0.85rem;">
                 ${escapeHtml(c.description)}
             </div>
             <div class="complaint-actions">
-                <button onclick="adminMarkInProgress('${c.id}')" class="btn btn-warning" style="font-size:0.75rem; padding:0.4rem 0.8rem;">Mark In Progress</button>
-                <button onclick="adminResolve('${c.id}')" class="btn btn-success" style="font-size:0.75rem; padding:0.4rem 0.8rem;">Resolve Now</button>
+                <button onclick="adminMarkInProgress('${c.id}')" class="btn btn-warning" style="font-size:0.75rem; padding:0.35rem 0.7rem;">Mark In Progress</button>
+                <button onclick="adminResolve('${c.id}')" class="btn btn-success" style="font-size:0.75rem; padding:0.35rem 0.7rem;">Resolve Now</button>
             </div>
         </div>
         `;
@@ -287,11 +268,11 @@ function renderInProgress() {
                 <span class="badge badge-default">${escapeHtml(c.category)}</span>
                 ${prioBadge}
             </div>
-            <div class="complaint-meta" style="color: var(--text-primary); font-size: 0.9rem;">
+            <div class="complaint-meta" style="color: var(--text-primary); font-size: 0.85rem;">
                 ${escapeHtml(c.description)}
             </div>
             <div class="complaint-actions">
-                <button onclick="adminResolve('${c.id}')" class="btn btn-success" style="font-size:0.75rem; padding:0.4rem 0.8rem; width: 100%;">Mark as Resolved</button>
+                <button onclick="adminResolve('${c.id}')" class="btn btn-success" style="font-size:0.75rem; padding:0.35rem 0.7rem; width: 100%;">Mark as Resolved</button>
             </div>
         </div>
         `;
@@ -377,7 +358,7 @@ window.clearSystem = function () {
         
         // Clear panel visual values
         const sortedList = document.getElementById('sortedComplaintsList');
-        if (sortedList) sortedList.innerHTML = '<div class="empty-state" style="grid-column: 1 / -1;">Click a sorting method above to view sorted output.</div>';
+        if (sortedList) sortedList.innerHTML = '<div class="empty-state" style="grid-column: 1 / -1;">Select a sort method above to run simulation.</div>';
         resetTraversalChain();
         const card = document.getElementById('searchResultCard');
         if (card) card.classList.remove('show');
@@ -426,7 +407,7 @@ function renderSortList(items) {
     if (!list) return;
 
     if (items.length === 0) {
-        list.innerHTML = '<div class="empty-state" style="grid-column: 1 / -1;">Click a sorting method above to view sorted output.</div>';
+        list.innerHTML = '<div class="empty-state" style="grid-column: 1 / -1;">Select a sort method above to run simulation.</div>';
         return;
     }
 
@@ -442,7 +423,7 @@ function renderSortList(items) {
         }
 
         const prioBadge = c.isUrgent ? `<span class="badge badge-urgent">Urgent</span>` : '';
-        const delay = (index * 0.05).toFixed(2);
+        const delay = (index * 0.03).toFixed(2);
 
         return `
         <div class="complaint-item fade-in-item" style="animation-delay: ${delay}s;">
@@ -460,7 +441,7 @@ function renderSortList(items) {
                 <span class="badge badge-default">${escapeHtml(c.category)}</span>
                 <span class="complaint-meta font-mono">${c.id}</span>
             </div>
-            <div class="complaint-meta" style="color: var(--text-primary); font-size: 0.9rem;">
+            <div class="complaint-meta" style="color: var(--text-primary); font-size: 0.85rem;">
                 ${escapeHtml(c.description)}
             </div>
         </div>
@@ -483,19 +464,18 @@ window.searchTreeComplaint = function () {
         return;
     }
 
-    const structure = document.querySelector('input[name="treeStructure"]:checked').value;
-    const tree = (structure === 'bst') ? DSA.getBST() : DSA.getAVL();
+    const tree = DSA.getBST();
     
     const complaint = tree.search(id);
     const card = document.getElementById('searchResultCard');
 
     if (!complaint) {
-        showToast(`Complaint ${id} not found inside the ${structure.toUpperCase()} Tree.`, "danger");
+        showToast(`Complaint ${id} not found inside the BST.`, "danger");
         if (card) card.classList.remove('show');
         return;
     }
 
-    showToast(`Found Complaint ${id} inside ${structure.toUpperCase()} Index structure!`, "success");
+    showToast(`Found Complaint ${id} inside BST Index structure!`, "success");
 
     let dotClass = 'dot-pending';
     let statusText = 'Pending';
@@ -510,8 +490,8 @@ window.searchTreeComplaint = function () {
     const prioBadge = complaint.isUrgent ? `<span class="badge badge-urgent">Urgent</span>` : '';
 
     card.innerHTML = `
-    <div class="complaint-item" style="border-left: 4px solid var(--accent); margin-bottom: 0;">
-        <h3 class="stat-title" style="color: var(--accent); margin-bottom: 0.5rem; font-size: 0.75rem;">Tree Query Results</h3>
+    <div class="complaint-item" style="border-left: 3px solid var(--accent); margin-bottom: 0;">
+        <h3 class="stat-title" style="color: var(--accent); margin-bottom: 0.35rem; font-size: 0.75rem;">Tree Query Results</h3>
         <div class="complaint-header">
             <span class="complaint-student">${escapeHtml(complaint.studentName)}</span>
             <div style="display: flex; align-items: center; gap: 8px;">
@@ -526,7 +506,7 @@ window.searchTreeComplaint = function () {
             <span class="badge badge-default">${escapeHtml(complaint.category)}</span>
             <span class="complaint-meta font-mono">${complaint.id}</span>
         </div>
-        <div class="complaint-meta" style="color: var(--text-primary); font-size: 0.9rem;">
+        <div class="complaint-meta" style="color: var(--text-primary); font-size: 0.85rem;">
             ${escapeHtml(complaint.description)}
         </div>
     </div>
@@ -545,15 +525,14 @@ window.searchTreeComplaint = function () {
 }
 
 window.visualizeTreeTraversal = function (order) {
-    const structure = document.querySelector('input[name="treeStructure"]:checked').value;
-    const tree = (structure === 'bst') ? DSA.getBST() : DSA.getAVL();
+    const tree = DSA.getBST();
     
     let result = [];
     if (order === 'inorder') {
         result = tree.inorder();
-    } else if (order === 'preorder' && structure === 'bst') {
+    } else if (order === 'preorder') {
         result = tree.preorder();
-    } else if (order === 'postorder' && structure === 'bst') {
+    } else if (order === 'postorder') {
         result = tree.postorder();
     }
 
@@ -591,7 +570,7 @@ window.showChainNodeDetails = function (id) {
 function resetTraversalChain() {
     const chain = document.getElementById('traversalChain');
     if (chain) {
-        chain.innerHTML = '<div class="empty-state" style="width: 100%; padding: 1.5rem;">Click a traversal button to visualize the structured traversal sequence.</div>';
+        chain.innerHTML = '<div class="empty-state" style="width: 100%; padding: 1.5rem;">Click a traversal type above to display structured tree order.</div>';
     }
 }
 
@@ -697,10 +676,10 @@ function animateGraphTraversal(type) {
         }
 
         idx++;
-        graphAnimTimeout = setTimeout(walk, 700);
+        graphAnimTimeout = setTimeout(walk, 600);
     }
 
-    graphAnimTimeout = setTimeout(walk, 700);
+    graphAnimTimeout = setTimeout(walk, 600);
 }
 
 window.runDijkstra = function () {

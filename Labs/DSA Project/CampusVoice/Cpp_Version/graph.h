@@ -26,9 +26,6 @@ private:
     // Dijkstra helper
     int minDistance(int dist[], bool visited[]);
  
-    // Kruskal helpers
-    int findParent(int parent[], int i);
-    void unionSets(int parent[], int rank[], int x, int y);
  
 public:
     Graph();
@@ -44,8 +41,7 @@ public:
     // Dijkstra — shortest escalation path
     void dijkstra(int src);
  
-    // Kruskal — minimum spanning tree
-    void kruskal();
+  
  
     // Display
     void displayDepartments();

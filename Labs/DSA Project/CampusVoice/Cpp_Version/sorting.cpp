@@ -94,73 +94,7 @@ void Sorting::mergeSort(Complaint arr[], int left, int right) {
     }
 }
  
-// ==================== QUICK SORT ====================
-// Pick pivot, partition around it, recurse
-// Time: O(n log n) average
-int Sorting::partition(Complaint arr[], int low, int high) {
-    int pivot = arr[high].id;
-    int i = low - 1;
- 
-    for (int j = low; j < high; j++) {
-        if (arr[j].id <= pivot) {
-            i++;
-            Complaint temp = arr[i];
-            arr[i] = arr[j];
-            arr[j] = temp;
-        }
-    }
- 
-    Complaint temp = arr[i + 1];
-    arr[i + 1] = arr[high];
-    arr[high] = temp;
- 
-    return i + 1;
-}
- 
-void Sorting::quickSort(Complaint arr[], int low, int high) {
-    if (low < high) {
-        int pi = partition(arr, low, high);
-        quickSort(arr, low, pi - 1);
-        quickSort(arr, pi + 1, high);
-    }
-}
- 
-// ==================== HEAP SORT ====================
-// Build max heap, extract max repeatedly
-// Time: O(n log n)
-void Sorting::heapify(Complaint arr[], int n, int i) {
-    int largest = i;
-    int left  = 2 * i + 1;
-    int right = 2 * i + 2;
- 
-    if (left < n && arr[left].id > arr[largest].id)
-        largest = left;
- 
-    if (right < n && arr[right].id > arr[largest].id)
-        largest = right;
- 
-    if (largest != i) {
-        Complaint temp = arr[i];
-        arr[i] = arr[largest];
-        arr[largest] = temp;
-        heapify(arr, n, largest);
-    }
-}
- 
-void Sorting::heapSort(Complaint arr[], int n) {
-    // Build max heap
-    for (int i = n / 2 - 1; i >= 0; i--)
-        heapify(arr, n, i);
- 
-    // Extract elements one by one
-    for (int i = n - 1; i > 0; i--) {
-        Complaint temp = arr[0];
-        arr[0] = arr[i];
-        arr[i] = temp;
-        heapify(arr, i, 0);
-    }
-    cout << "Complaints sorted by ID using Heap Sort!\n";
-}
+
  
 // ==================== DISPLAY ====================
 void Sorting::display(Complaint arr[], int n) {
@@ -191,8 +125,7 @@ void Sorting::sortMenu(Complaint arr[], int n) {
     cout << "2. Selection Sort (by Category)\n";
     cout << "3. Insertion Sort (by Status)\n";
     cout << "4. Merge Sort    (by ID)\n";
-    cout << "5. Quick Sort    (by ID)\n";
-    cout << "6. Heap Sort     (by ID)\n";
+   
     cout << "Enter choice: ";
     cin >> choice;
  
@@ -200,8 +133,7 @@ void Sorting::sortMenu(Complaint arr[], int n) {
     else if (choice == 2) selectionSort(arr, n);
     else if (choice == 3) insertionSort(arr, n);
     else if (choice == 4) { mergeSort(arr, 0, n - 1); cout << "Complaints sorted by ID using Merge Sort!\n"; }
-    else if (choice == 5) { quickSort(arr, 0, n - 1); cout << "Complaints sorted by ID using Quick Sort!\n"; }
-    else if (choice == 6) heapSort(arr, n);
+ 
     else { cout << "Invalid choice!\n"; return; }
  
     cout << "\n--- Sorted Results ---\n";
