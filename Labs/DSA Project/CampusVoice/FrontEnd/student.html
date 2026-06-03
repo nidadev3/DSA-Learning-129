@@ -4,17 +4,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CampusVoice - Student Portal</title>
+    <title>CampusVoice | Student Portal</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <header>
+    <!-- Toast notifications container -->
+    <div id="toast-container"></div>
+
+    <header class="fade-in-item stagger-1">
         <h1>CampusVoice</h1>
-        <p>Student Portal - Submit Complaints</p>
+        <p>Student Portal - Submit Concerns</p>
     </header>
 
-    <div class="container">
+    <div class="container fade-in-item stagger-2">
         <div class="top-nav">
             <a href="index.html" class="btn btn-outline">&larr; Back to Menu</a>
         </div>
@@ -26,36 +29,47 @@
                 <form id="complaintForm">
                     <div class="form-group">
                         <label for="cStudentName">Student Name</label>
-                        <input type="text" id="cStudentName" class="form-control" required placeholder="Enter Name">
+                        <input type="text" id="cStudentName" class="form-control" required placeholder="Enter your full name">
                     </div>
+                    
                     <div class="form-group">
                         <label for="cCategory">Category</label>
                         <select id="cCategory" class="form-control">
-                            <option value="Lab">Lab</option>
+                            <option value="Lab">Lab / IT Dept</option>
                             <option value="Hostel">Hostel</option>
                             <option value="Cafe">Cafe</option>
+                            <option value="Student Affairs">Student Affairs</option>
+                            <option value="Admin Office">Admin Office</option>
                             <option value="Other">Other</option>
                         </select>
                     </div>
+
+                    <div class="form-group">
+                        <label>Priority Level</label>
+                        <div class="pill-toggle">
+                            <input type="radio" id="prio-normal" name="priority" value="normal" checked>
+                            <label for="prio-normal">Normal</label>
+                            
+                            <input type="radio" id="prio-urgent" name="priority" value="urgent">
+                            <label for="prio-urgent">Urgent</label>
+                            
+                            <div class="pill-slider"></div>
+                        </div>
+                    </div>
+                    
                     <div class="form-group">
                         <label for="cDesc">Description</label>
                         <textarea id="cDesc" class="form-control" rows="4" required
-                            placeholder="Provide details..."></textarea>
+                            placeholder="Provide full details of your concern..."></textarea>
                     </div>
-                    <div class="form-group">
-                        <label for="cPriority">Priority Level</label>
-                        <select id="cPriority" class="form-control">
-                            <option value="normal">Normal (Standard Queue)</option>
-                            <option value="urgent">Urgent (Priority Queue)</option>
-                        </select>
-                    </div>
-                    <button type="submit" class="btn btn-primary" style="width: 100%;">Submit Complaint</button>
+                    
+                    <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 0.5rem;">Submit Complaint</button>
                 </form>
             </div>
 
             <!-- Tracking History / Array -->
             <div class="solid-card">
-                <h2 class="section-title">My Complaints (Array)</h2>
+                <h2 class="section-title">My Complaints (Array Database)</h2>
                 <div id="studentHistoryList">
                     <!-- Javascript populates this -->
                 </div>
