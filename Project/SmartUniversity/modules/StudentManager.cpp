@@ -33,7 +33,7 @@ void StudentManager::displayAll() {
 }
 
 void StudentManager::displaySortedByCGPA() {
-    cout << "--- Sorted by CGPA (AVL Inorder) ---" << endl;
+    cout << "--- Sorted by CGPA ---" << endl;
     avlTree.inorder();
 }
 
