@@ -32,6 +32,19 @@ void StudentManager::displayAll() {
     dynamicArray.display();
 }
 
+int StudentManager::getSize() {
+    return dynamicArray.getSize();
+}
+
+Student* StudentManager::getArray() {
+    int size = dynamicArray.getSize();
+    Student* arr = new Student[size];
+    for (int i = 0; i < size; i++) {
+        arr[i] = dynamicArray.getAt(i);
+    }
+    return arr;
+}
+
 void StudentManager::displaySortedByCGPA() {
     cout << "--- Sorted by CGPA ---" << endl;
     avlTree.inorder();

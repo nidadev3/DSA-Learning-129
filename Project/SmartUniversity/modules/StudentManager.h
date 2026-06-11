@@ -19,6 +19,8 @@ private:
     SearchAlgorithms searcher;
     FileManager fileManager;
 public:
+    int getSize();
+    Student* getArray();
     void addStudent(Student s);
     void deleteStudent(int rollNo);
     void searchByRollNo(int rollNo);
